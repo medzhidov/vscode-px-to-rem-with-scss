@@ -1,0 +1,33 @@
+{
+    "name": "px-to-rem-with-scss",
+    "displayName": "Px to rem with scss",
+    "description": "Extension for make adaptive quickly with scss function.",
+    "version": "1.0.0",
+    "publisher": "Ilya Medzhidov",
+    "engines": {
+        "vscode": "^1.0.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.active"
+    ],
+    "main": "./out/src/extension",
+    "contributes": {
+        "commands": [{
+            "command": "extension.active",
+            "title": "Px to rem with scss"
+        }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+        "compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install"
+    },
+    "devDependencies": {
+        "typescript": "^1.8.5",
+        "vscode": "^0.11.0"
+    }
+}
