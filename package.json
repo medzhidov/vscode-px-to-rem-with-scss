@@ -3,7 +3,7 @@
     "displayName": "Px to rem with scss",
     "description": "Extension for make adaptive quickly with scss function.",
     "version": "1.0.0",
-    "publisher": "Ilya Medzhidov",
+    "publisher": "medzhidov",
     "engines": {
         "vscode": "^1.0.0"
     },
