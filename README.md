@@ -7,3 +7,7 @@ It need if you use sass or scss, where you may be has next function:
     }
 ```
 Where `$font_size` is font size of your html;
+
+
+#Hotkeys
+`alt+c` - convert px to rem(px)
