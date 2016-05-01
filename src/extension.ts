@@ -35,9 +35,11 @@ class Selections {
                 var text = editor.document.getText(new vscode.Range(selection.start, selection.end));
                 var matches = text.match(/(-?)([0-9]+)px/g);
                 
-                matches.forEach(function(val, i){
-                    text = text.replace(val, `rem(${parseInt(val)})`);
-                });
+                if( matches != null ){
+                    matches.forEach(function(val, i){
+                        text = text.replace(val, `rem(${parseInt(val)})`);
+                    });
+                }
                 
                 builder.replace(selection, text);
             }

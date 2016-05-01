@@ -17,9 +17,14 @@
     "contributes": {
         "commands": [{
             "command": "extension.active",
-            "title": "Px to rem with scss"
-        }
-        ]
+            "title": "Px to rem"
+        }],
+        "keybindings": [{
+            "command": "extension.active",
+            "key": "alt+c",
+            "mac": "alt+c",
+            "when": "editorTextFocus"
+        }]
     },
     "scripts": {
         "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
