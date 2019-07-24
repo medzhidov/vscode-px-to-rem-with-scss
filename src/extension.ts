@@ -33,7 +33,23 @@ class Selections {
 
         editor.edit(builder => {
             for (const selection of selections) {
-                var text = editor.document.getText(new vscode.Range(selection.start, selection.end));
+                let text = editor.document.getText(new vscode.Range(selection.start, selection.end));
+
+                // Convert old rem elements shielded wrapper '##OLDREM{}'
+                text = text.replace(/((?:#{)?rem\((\d+)\)(?:})?)/g, '##OLDREM{$2}');
+
+                // Second - replace all in `calc`
+                var calcMatches = text.match(/calc\((?:.+)?(?:[0-9]+px)(?:.+)?\)/g);
+                
+                if( calcMatches != null ){
+                    calcMatches.forEach(function(val, i){
+                        let newVal = val.replace(/(-?[0-9]+)px/g, '#{rem($1)}');
+
+                        text = text.replace(val, newVal);
+                    });
+                }
+
+                // Replace all other
                 var matches = text.match(/(-?)([0-9]+)px/g);
                 
                 if( matches != null ){
@@ -41,6 +57,9 @@ class Selections {
                         text = text.replace(val, `rem(${parseInt(val)})`);
                     });
                 }
+
+                // At the end convert old rem back to the pixels
+                text = text.replace(/\#\#OLDREM\{(\d+)\}/g, '$1px');
                 
                 builder.replace(selection, text);
             }

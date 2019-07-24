@@ -12,4 +12,4 @@
 
  # Hotkeys
  
- `alt+c` - convert px to rem(px)
+ `alt+c` - convert 10px to rem(10px) and back (of course it's converts #{rem(10px)} inside of "calc" function)
