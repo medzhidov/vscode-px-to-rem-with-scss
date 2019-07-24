@@ -36,7 +36,7 @@ class Selections {
                 let text = editor.document.getText(new vscode.Range(selection.start, selection.end));
 
                 // Convert old rem elements shielded wrapper '##OLDREM{}'
-                text = text.replace(/((?:#{)?rem\((\d+)\)(?:})?)/g, '##OLDREM{$2}');
+                text = text.replace(/((?:#{)?rem\((-?\d+)\)(?:})?)/g, '##OLDREM{$2}');
 
                 // Second - replace all in `calc`
                 var calcMatches = text.match(/calc\((?:.+)?(?:[0-9]+px)(?:.+)?\)/g);
@@ -59,7 +59,7 @@ class Selections {
                 }
 
                 // At the end convert old rem back to the pixels
-                text = text.replace(/\#\#OLDREM\{(\d+)\}/g, '$1px');
+                text = text.replace(/\#\#OLDREM\{(-?\d+)\}/g, '$1px');
                 
                 builder.replace(selection, text);
             }

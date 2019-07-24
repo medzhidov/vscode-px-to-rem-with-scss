@@ -2,7 +2,7 @@
     "name": "px-to-rem-with-scss",
     "displayName": "Px to rem with scss",
     "description": "Extension that make adaptive quickly with scss function.",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "publisher": "medzhidov",
     "engines": {
         "vscode": "^1.5.0"
